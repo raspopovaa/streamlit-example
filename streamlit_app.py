@@ -14,8 +14,7 @@
 # limitations under the License.
 
 """An example of showing geographic data."""
-% pip install altair
-% pip install pydeck
+
 import streamlit as st
 import pandas as pd
 import numpy as np
