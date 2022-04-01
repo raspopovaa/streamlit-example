@@ -4,4 +4,3 @@ streamlit
 altair
 random
 numpy
-
