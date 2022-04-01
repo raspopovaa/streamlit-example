@@ -100,10 +100,8 @@ st.markdown("""---""")
 st.vega_lite_chart(t12, {
      'mark': {'type': 'circle', 'tooltip': True},
      'encoding': {
-         'x': {'month': 'a', 'type': 'quantitative'},
-         'y': {'Тонны': 'b', 'type': 'quantitative'},
-         'size': {'field': 'c', 'type': 'quantitative'},
-         'color': {'field': 'c', 'type': 'quantitative'},
+         'x': {'month': 'a'},
+         'y': {'Тонны': 'b'}
      },
  })
 
