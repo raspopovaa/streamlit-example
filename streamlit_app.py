@@ -84,7 +84,7 @@ with right_column:
 st.markdown("""---""")
 
 st.markdown("Топ 10 клиентов в ткущем месяце")
-st.table(t11.style.background_gradient(axis=0, cmap='YlOrRd'))
+st.table(t11))
 
 
 st.markdown("""---""")
