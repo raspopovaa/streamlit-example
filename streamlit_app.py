@@ -96,37 +96,8 @@ st.table(t11)
 
 
 st.markdown("""---""")
+st.line_chart(t12)
 
-source = t12
-
-# Original time series chart. Omitted `get_chart` for clarity
-chart = get_chart(source)
-
-# Input annotations
-ANNOTATIONS = [
-    ("Mar 01, 2008", "Pretty good day for GOOG"),
-    ("Dec 01, 2007", "Something's going wrong for GOOG & AAPL"),
-    ("Nov 01, 2008", "Market starts again thanks to..."),
-    ("Dec 01, 2009", "Small crash for GOOG after..."),
-]
-
-# Create a chart with annotations
-annotations_df = pd.DataFrame(ANNOTATIONS, columns=["date", "event"])
-annotations_df.date = pd.to_datetime(annotations_df.date)
-annotations_df["y"] = 0
-annotation_layer = (
-    alt.Chart(t12)
-    .mark_text(size=15, text="⬇", dx=0, dy=-10, align="center")
-    .encode(
-        x="Менеджер",
-        y='Тонны',
-        tooltip=["event"],
-    )
-    .interactive()
-)
-
-# Display both charts together
-st.altair_chart((chart + annotation_layer).interactive(), use_container_width=True)
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
