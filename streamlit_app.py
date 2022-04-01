@@ -21,7 +21,7 @@ st.set_page_config(page_title=" Панель текущих продаж мен�
 def get_data_from_excel():
     df = pd.read_excel(
         io='sample_2020.xlsx',
-        engine="openpyxl",)
+        )
     df['Месяц'] = np.random.randint(10, size=(len(df),1))
     return df    
     
