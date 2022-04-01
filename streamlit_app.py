@@ -74,7 +74,7 @@ st.markdown("##")
 # TOP KPI's
 total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
-star_rating = ":bomb:" * 1)
+star_rating = ":bomb:" * 1
 average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 2)
 
 left_column, middle_column, right_column = st.columns(3)
