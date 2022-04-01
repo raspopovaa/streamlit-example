@@ -99,7 +99,7 @@ st.table(t11)
 st.markdown("""---""")
 
 
-c = alt.Chart(t11).mark_circle().encode(
+c = alt.Chart(t11).mark_line().encode(
      x='Контрагент', y='Потребление:Тонны')
 
 st.altair_chart(c, use_container_width=True)
