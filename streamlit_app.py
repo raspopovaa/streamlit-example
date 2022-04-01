@@ -97,7 +97,15 @@ st.table(t11)
 
 st.markdown("""---""")
 
-st.area_chart(data=t12)
+st.vega_lite_chart(t12, {
+     'mark': {'type': 'circle', 'tooltip': True},
+     'encoding': {
+         'x': {'month': 'a', 'type': 'quantitative'},
+         'y': {'Тонны': 'b', 'type': 'quantitative'},
+         'size': {'field': 'c', 'type': 'quantitative'},
+         'color': {'field': 'c', 'type': 'quantitative'},
+     },
+ })
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
