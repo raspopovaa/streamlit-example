@@ -32,7 +32,7 @@ df = get_data_from_excel()
 
 # ---- SIDEBAR ----
 st.sidebar.header("Please Filter Here:")
-manager = st.sidebar.multiselect(
+manager = st.sidebar.selectbox(
     "Выбери менеджера:",
     options=df['Менеджер'].unique(),
     default=df['Менеджер'].unique()
