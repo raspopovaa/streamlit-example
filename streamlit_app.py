@@ -35,7 +35,7 @@ st.sidebar.header("Please Filter Here:")
 manager = st.sidebar.multiselect(
     "Выбери менеджера:",
     options=df['Менеджер'].unique(),
-    default=df['month'].unique()
+    default=df['Менеджер'].unique()
 )
 month = st.sidebar.multiselect(
     "Выбери месяц:",
