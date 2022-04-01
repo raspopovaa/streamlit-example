@@ -97,7 +97,13 @@ st.table(t11)
 
 st.markdown("""---""")
 
-st.line_chart(t12)
+st.alt.Chart(t12).mark_line().encode(
+   x="Менеджер",
+   y="Тонны",
+   
+).properties(
+   height=300, width=500
+)
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
