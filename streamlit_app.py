@@ -83,7 +83,7 @@ with left_column:
     st.subheader(f"тонн {total_sales:,}")
 with middle_column:
     st.subheader("Средний пролив клиента:")
-    st.subheader(f"{average_rating} {}")
+    st.subheader(f"{average_rating}")
 with right_column:
     st.subheader("Количество активных клиентов:")
     st.subheader(f":articulated_lorry: {average_sale_by_transaction} клиентов")
