@@ -84,7 +84,7 @@ with right_column:
 st.markdown("""---""")
 
 st.markdown("Топ 10 клиентов в ткущем месяце")
-st.table(t11))
+st.table(t11)
 
 
 st.markdown("""---""")
