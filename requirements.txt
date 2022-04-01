@@ -1,6 +1,5 @@
 streamlit
 altair
 random
-numpy
 pandas
 plotly.express
