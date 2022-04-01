@@ -80,7 +80,7 @@ average_sale_by_transaction = round(df_selection['Наименование_кл�
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
     st.subheader("Общая реализация:")
-    st.subheader(f"{total_sales:,} тонн")
+    st.subheader(f":moneybag: {total_sales} тонн")
 with middle_column:
     st.subheader("Средний пролив клиента:")
     st.subheader(f"{star_rating} {average_rating} тонн")
