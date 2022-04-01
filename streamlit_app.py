@@ -96,7 +96,7 @@ st.table(t11)
 
 
 st.markdown("""---""")
-st.line_chart(t12)
+st.bar_chart(data=t12, width=500, height=700, use_container_width=True)
 
 
 # ---- HIDE STREAMLIT STYLE ----
