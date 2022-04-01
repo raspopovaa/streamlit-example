@@ -66,7 +66,7 @@ t10 = df_selection.groupby(['Наименование_клиента'],as_index=
 t11 = t10.rename(columns = {'Наименование_клиента':'Контрагент','Тонны':'Потребление:Тонны'}
 ).reset_index().drop('index',axis=1)
 t11.index = np.arange(1,len(t10)+1)
-t12 = df_selection.groupby(['month','Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False)
+t12 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False)
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
@@ -97,13 +97,7 @@ st.table(t11)
 
 st.markdown("""---""")
 
-st.vega_lite_chart(t12, {
-     'mark': {'type': 'circle', 'tooltip': True},
-     'encoding': {
-         'x': {'month': 'a'},
-         'y': {'Тонны': 'b'}
-     },
- })
+st.line_chart(t12)
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
