@@ -59,7 +59,7 @@ otdel = st.sidebar.multiselect(
     default=df['Отделение'].unique()
 )
 df_selection = df.query(
-    'Менеджер in @manager & month in @month & Сегмент in @segment & НГ in @prod & Отделение in otdel'
+    'Менеджер in @manager & month in @month & Сегмент in @segment & НГ in @prod & Отделение in @otdel'
 )
 
 t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False).head(11)
