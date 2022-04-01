@@ -56,9 +56,9 @@ prod = st.sidebar.multiselect(
 df_selection = df.query('Менеджер in @manager & Месяц in @month & Сегмент in @segment & НГ in @prod')
 
 t10 = df_selection.groupby(['КА'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False).head(11)
-t10 = t10.rename(columns = {'КА':'Контрагент','Тонны':'Потребление:Тонны'}
+t11 = t10.rename(columns = {'КА':'Контрагент','Тонны':'Потребление:Тонны'}
 ).reset_index().drop('index',axis=1)
-t10.index = np.arange(1,len(t10)+1)
+t11.index = np.arange(1,len(t10)+1)
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
@@ -84,7 +84,7 @@ with right_column:
 st.markdown("""---""")
 
 st.markdown("Топ 10 клиентов в ткущем месяце")
-st.table(t10.style.background_gradient(axis=0, cmap='YlOrRd'))
+st.table(t11.style.background_gradient(axis=0, cmap='YlOrRd'))
 
 
 st.markdown("""---""")
