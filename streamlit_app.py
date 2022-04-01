@@ -67,6 +67,7 @@ t11 = t10.rename(columns = {'Наименование_клиента':'Конт�
 ).reset_index().drop('index',axis=1)
 t11.index = np.arange(1,len(t10)+1)
 t12 = df_selection.groupby(['Менеджер'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False)
+t12['Тонны'] = t12['Тонны'].astype('int')
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
