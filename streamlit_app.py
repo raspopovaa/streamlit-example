@@ -32,7 +32,7 @@ df = get_data_from_excel()
 
 # ---- SIDEBAR ----
 st.sidebar.header("Please Filter Here:")
-manager = st.sidebar.selectbox(
+manager = st.sidebar.radio(
     "Выбери менеджера:",
     options=df['Менеджер'].unique(),
     
