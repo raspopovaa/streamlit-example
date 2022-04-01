@@ -74,16 +74,16 @@ st.markdown("##")
 # TOP KPI's
 total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
-star_rating = ":star:" * int(round(average_rating, 0))
+star_rating = ":bomb:" * 1)
 average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 2)
 
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
     st.subheader("Общая реализация:")
-    st.subheader(f"тонн {total_sales:,}")
+    st.subheader(f"{total_sales:,} тонн")
 with middle_column:
     st.subheader("Средний пролив клиента:")
-    st.subheader(f"{average_rating}")
+    st.subheader(f"{star_rating} {average_rating} тонн")
 with right_column:
     st.subheader("Количество активных клиентов:")
     st.subheader(f":articulated_lorry: {average_sale_by_transaction} клиентов")
