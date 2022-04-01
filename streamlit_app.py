@@ -97,7 +97,12 @@ st.table(t11)
 
 
 st.markdown("""---""")
-st.bar_chart(data=t12, width=500, height=700, use_container_width=True)
+
+
+c = alt.Chart(t12).mark_circle().encode(
+     x='Менеджер', y='Тонны')
+
+st.altair_chart(c, use_container_width=True)
 
 
 # ---- HIDE STREAMLIT STYLE ----
