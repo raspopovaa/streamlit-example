@@ -103,7 +103,7 @@ st.title(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
 st.table(t11.style.highlight_max(color='yellowgreen', subset='Потребление:Тонны'))
-st.table(t11.style.format("{:.1f}").background_gradient(cmap='Blues',subset='Потребление:Тонны', axis=1)
+st.table(t11.style.background_gradient(cmap='Blues',subset='Потребление:Тонны', axis=1)
         )
 st.dataframe(t11.style.highlight_max(axis=0))
          
