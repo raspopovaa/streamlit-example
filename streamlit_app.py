@@ -74,18 +74,18 @@ t12['Тонны'] = t12['Тонны'].astype('int')
 st.title(":bar_chart: Показатели активности клиентов")
 st.markdown("##")
 
-# TOP KPI's
+st.header("Основные метрики")
 total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
 average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 0)
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Общая реализация: **тонн**", total_sales,)
+col1.metric("Общая реализация: тонн", total_sales,)
 col2.metric("Среднее потребление клиента: тонн", average_rating, )
 col3.metric("Количество активных клиентов: клиентов", average_sale_by_transaction,)
 
 st.markdown("""---""")
-st.title(":articulated_lorry: ТОП-10 клиентов")
+st.header(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
 st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:Тонны'], cmap='Blues'))
