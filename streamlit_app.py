@@ -75,24 +75,6 @@ st.title(":bar_chart: Показатели активности клиентов
 st.markdown("##")
 
 # TOP KPI's
-total_sales = int(df_selection['Тонны'].sum())
-average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
-star_rating = ":bomb:" * 1
-average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 0)
-
-left_column, middle_column, right_column = st.columns(3)
-with left_column:
-    st.subheader("Общая реализация:")
-    st.subheader(f":moneybag: {total_sales} тонн")
-with middle_column:
-    st.subheader("Среднее потребление клиента:")
-    st.subheader(f"{star_rating} {average_rating} тонн")
-with right_column:
-    st.subheader("Количество активных клиентов:")
-    st.subheader(f":articulated_lorry: {average_sale_by_transaction} клиентов")
-
-st.markdown("""---""")
-
 col1, col2, col3 = st.columns(3)
 col1.metric("Общая реализация: тонн", total_sales,)
 col2.metric("Среднее потребление клиента: тонн", average_rating, )
@@ -102,11 +84,8 @@ st.markdown("""---""")
 st.title(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
-st.table(t11.style.highlight_max(color='yellowgreen', subset='Потребление:Тонны'))
-st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:Тонны'], cmap='Blues')
-        )
-st.dataframe(t11.style.highlight_max(axis=0))
-         
+st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:Тонны'], cmap='Blues'))
+      
 st.markdown("""---""")
 
 
