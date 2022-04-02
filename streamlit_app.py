@@ -102,7 +102,11 @@ st.title(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
 st.table(t11.style.highlight_max(color='yellowgreen', subset='Потребление:Тонны'))
+st.table(t11.style.highlight_max(color='yellowgreen', subset='Потребление:Тонны'
+                                ).format("{:.1f}").background_gradient(cmap='Blues', axis=1)
+         
 st.dataframe(t11.style.highlight_max(axis=0))
+         
 st.markdown("""---""")
 
 
