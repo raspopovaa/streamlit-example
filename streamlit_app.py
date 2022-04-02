@@ -102,8 +102,7 @@ st.title(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
 st.table(t11)
-
-
+st.dataframe(t11.style.highlight_max(axis=0))
 st.markdown("""---""")
 
 
