@@ -14,6 +14,7 @@ import altair as alt
 #import random
 import openpyxl
 import numpy as np
+import matplotlib.pyplot as plt
 
 st.set_page_config(page_title=" Панель текущих продаж менеджеров", page_icon=":bar_chart:", layout="wide")
 
