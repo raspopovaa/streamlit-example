@@ -93,7 +93,7 @@ with right_column:
 st.markdown("""---""")
 
 col1, col2, col3 = st.columns(3)
-col1.metric(:moneybag: "Общая реализация:", total_sales, :moneybag: )
+col1.metric("Общая реализация:", total_sales, :moneybag: )
 col2.metric(":bomb: Среднее потребление клиента:", average_rating, )
 col3.metric(":articulated_lorry: Количество активных клиентов:", average_sale_by_transaction, )
 
