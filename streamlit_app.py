@@ -97,7 +97,8 @@ col1.metric("Temperature", total_sales, "1.2 °F")
 col2.metric("Wind", average_rating, "-8%")
 col3.metric("Humidity", average_sale_by_transaction, "4%")
 
-st.markdown("""---""")st.markdown("Топ 10 клиентов в ткущем месяце")
+st.markdown("""---""")
+st.markdown("Топ 10 клиентов в ткущем месяце")
 
 st.table(t11)
 
