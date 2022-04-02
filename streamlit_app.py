@@ -93,9 +93,9 @@ with right_column:
 st.markdown("""---""")
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Общая реализация:", total_sales, :moneybag: )
-col2.metric(":bomb: Среднее потребление клиента:", average_rating, )
-col3.metric(":articulated_lorry: Количество активных клиентов:", average_sale_by_transaction, )
+col1.metric("Общая реализация:", total_sales,)
+col2.metric("Среднее потребление клиента:", average_rating, )
+col3.metric(f":articulated_lorry: Количество активных клиентов:", average_sale_by_transaction, )
 
 st.markdown("""---""")
 st.markdown("Топ 10 клиентов в ткущем месяце")
