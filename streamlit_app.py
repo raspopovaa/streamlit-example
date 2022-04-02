@@ -97,7 +97,7 @@ st.altair_chart(c, use_container_width=True)
 
 t01 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].sum().nlargest(5,'Тонны')
 t02 = t01['Наименование_клиента']
-t13 = df.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента',],as_index=False)['Тонны'].sum()
+t13 = df_selection.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента',],as_index=False)['Тонны'].sum()
 
 d = alt.Chart(t13).mark_trail().encode(
    x="month",
