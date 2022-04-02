@@ -32,7 +32,7 @@ df = get_data_from_excel()
 
 
 # ---- SIDEBAR ----
-st.sidebar.header("Please Filter Here:")
+st.sidebar.header("Тут може отфильтровать данные:")
 manager = st.sidebar.multiselect(
     "Выбери менеджера:",
     options=df['Менеджер'].unique(),
@@ -72,9 +72,7 @@ t12['Тонны'] = t12['Тонны'].astype('int')
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
-st.markdown("##")
-
-st.header("Основные метрики")
+st.markdown("## Основные метрики")
 total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
 average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 0)
@@ -86,7 +84,7 @@ col3.metric("Количество активных клиентов: клиен�
 
 st.markdown("""---""")
 st.header(":articulated_lorry: ТОП-10 клиентов")
-st.markdown("###")
+st.markdown("### :articulated_lorry: ТОП-10 клиентов")
 
 st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:Тонны'], cmap='Blues'))
       
