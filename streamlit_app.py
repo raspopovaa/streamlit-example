@@ -95,10 +95,11 @@ st.markdown("""---""")
 col1, col2, col3 = st.columns(3)
 col1.metric("Общая реализация: тонн", total_sales,)
 col2.metric("Среднее потребление клиента: тонн", average_rating, )
-col3.metric("Количество активных клиентов: клиентов", average_sale_by_transaction, "rkbtynjd")
+col3.metric("Количество активных клиентов: клиентов", average_sale_by_transaction,)
 
 st.markdown("""---""")
-st.markdown("Топ 10 клиентов в ткущем месяце")
+st.title(":articulated_lorry: ТОП-10 клиентов")
+st.markdown("###")
 
 st.table(t11)
 
