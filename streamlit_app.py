@@ -99,10 +99,14 @@ t01 = df_selection.groupby(['Наименование_клиента'],as_index=
 t02 = t01['Наименование_клиента']
 t13 = df.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента',],as_index=False)['Тонны'].sum()
 
-d = alt.Chart(t13).mark_line().encode(
+d = alt.Chart(t13).mark_trail().encode(
    x="month",
-   y="Тонны",
-   color="Наименование_клиента"
+   y=alt.Y(
+        'Тонны',
+        scale=alt.Scale(type="log")  # Here the scale is applied
+    ),
+   color="Наименование_клиента",
+   size = "Тонны"
 )
 
 st.altair_chart(d, use_container_width=True)
