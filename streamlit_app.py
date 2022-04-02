@@ -80,7 +80,7 @@ average_rating = round(df_selection.groupby('Наименование_клиен
 average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 0)
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Общая реализация: тонн", total_sales,)
+col1.metric("Общая реализация: **тонн**", total_sales,)
 col2.metric("Среднее потребление клиента: тонн", average_rating, )
 col3.metric("Количество активных клиентов: клиентов", average_sale_by_transaction,)
 
