@@ -75,6 +75,10 @@ st.title(":bar_chart: Показатели активности клиентов
 st.markdown("##")
 
 # TOP KPI's
+total_sales = int(df_selection['Тонны'].sum())
+average_rating = round(df_selection.groupby('КА')['Тонны'].mean().mean(), 1)
+average_sale_by_transaction = round(df_selection['КА'].nunique(), 0)
+
 col1, col2, col3 = st.columns(3)
 col1.metric("Общая реализация: тонн", total_sales,)
 col2.metric("Среднее потребление клиента: тонн", average_rating, )
