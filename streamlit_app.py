@@ -101,7 +101,7 @@ st.markdown("""---""")
 st.title(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
-st.table(t11.style.highlight_max(color='yellowgreen', subset=numeric_columns))
+st.table(t11.style.highlight_max(color='yellowgreen', subset='Потребление:Тонны')
 st.dataframe(t11.style.highlight_max(axis=0))
 st.markdown("""---""")
 
