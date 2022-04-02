@@ -78,7 +78,7 @@ st.markdown("##")
 total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
 star_rating = ":bomb:" * 1
-average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 2)
+average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 0)
 
 left_column, middle_column, right_column = st.columns(3)
 with left_column:
@@ -103,7 +103,7 @@ st.title(":articulated_lorry: ТОП-10 клиентов")
 st.markdown("###")
 
 st.table(t11.style.highlight_max(color='yellowgreen', subset='Потребление:Тонны'))
-st.table(t11.style.background_gradient(cmap='Blues',subset='Потребление:Тонны', axis=1)
+st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:Тонны'], cmap='Blues')
         )
 st.dataframe(t11.style.highlight_max(axis=0))
          
