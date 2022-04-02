@@ -84,7 +84,7 @@ with left_column:
     st.subheader("Общая реализация:")
     st.subheader(f":moneybag: {total_sales} тонн")
 with middle_column:
-    st.subheader("Средний пролив клиента:")
+    st.subheader("Среднее потребление клиента:")
     st.subheader(f"{star_rating} {average_rating} тонн")
 with right_column:
     st.subheader("Количество активных клиентов:")
@@ -93,9 +93,9 @@ with right_column:
 st.markdown("""---""")
 
 col1, col2, col3 = st.columns(3)
-col1.metric("Temperature", total_sales, "1.2 °F")
-col2.metric("Wind", average_rating, "-8%")
-col3.metric("Humidity", average_sale_by_transaction, "4%")
+col1.metric(":moneybag: Общая реализация:", total_sales, )
+col2.metric(":bomb: Среднее потребление клиента:", average_rating, )
+col3.metric(":articulated_lorry: Количество активных клиентов:", average_sale_by_transaction, )
 
 st.markdown("""---""")
 st.markdown("Топ 10 клиентов в ткущем месяце")
