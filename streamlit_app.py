@@ -38,13 +38,11 @@ otdel = st.sidebar.multiselect(
     options=df['Отделение'].unique(),
     default=df['Отделение'].unique()
 )
-df_selection1 = df.query(
-    'Отделение in @otdel'
 )
 manager = st.sidebar.multiselect(
     "Выбери менеджера:",
-    options=df_selection1['Менеджер'].unique(),
-    default=df_selection1['Менеджер'].unique()
+    options=df['Менеджер'].unique(),
+    default=df['Менеджер'].unique()
 )
 month = st.sidebar.multiselect(
     "Выбери месяц:",
@@ -60,12 +58,6 @@ prod = st.sidebar.multiselect(
     "Выбери продукт:",
     options=df['НГ'].unique(),
     default=df['НГ'].unique()
-)
-
-otdel = st.sidebar.multiselect(
-    "Выбери отделение:",
-    options=df['Отделение'].unique(),
-    default=df['Отделение'].unique()
 )
 df_selection = df.query(
     'Менеджер in @manager & month in @month & Сегмент in @segment & НГ in @prod & Отделение in @otdel'
