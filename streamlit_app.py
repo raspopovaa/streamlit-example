@@ -67,7 +67,7 @@ df_selection = df.query(
 )
 
 t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean','count'])
-top_10 = t10.index = np.arange(1, len(df))
+t10.index = np.arange(1, len(df))
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
