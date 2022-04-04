@@ -11,7 +11,6 @@ import pandas as pd  # pip install pandas openpyxl
 import plotly.express as px  # pip install plotly-express
 import streamlit as st  # pip install streamlit
 import altair as alt
-#import random
 import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
@@ -89,11 +88,6 @@ st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:
       
 st.markdown("""---""")
 
-
-c = alt.Chart(t11).mark_line().encode(
-     x='Контрагент', y='Потребление:Тонны')
-
-st.altair_chart(c, use_container_width=True)
 
 t01 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].sum().nlargest(5,'Тонны')
 t02 = t01['Наименование_клиента']
