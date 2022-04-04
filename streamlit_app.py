@@ -67,7 +67,7 @@ df_selection = df.query(
 )
 
 t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean','count']).reset_index().sort_values(
-    by='sum', acsending=False)
+    by='sum', ascending=False).head(10).style.background_gradient(axis=0, gmap=t11['sum'], cmap='YlOrRd')
 t10.index = np.arange(1, len(t10)+1)
 top_10 = t10.rename(columns={'sum':'Общее потребление', 'mean':'Среднее потребление', 'count':'Количество заправок'})
 # ---- MAINPAGE ----
