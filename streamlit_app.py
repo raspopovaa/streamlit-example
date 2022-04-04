@@ -66,7 +66,7 @@ df_selection = df.query(
     'Менеджер in @manager & month in @month & Сегмент in @segment & НГ in @prod & Отделение in @otdel'
 )
 
-t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False).head(11)
+t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean'].sort_values(by='Тонны', ascending=False).head(11)
 top_10 = t10.rename(columns = {'Наименование_клиента':'Контрагент','Тонны':'Потребление:Тонны'}
 ).reset_index().drop('index',axis=1)
 top_10.index = np.arange(1,len(top_10)+1)
