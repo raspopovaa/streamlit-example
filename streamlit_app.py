@@ -67,14 +67,14 @@ df_selection = df.query(
 )
 
 t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean','count'])
-t10.index = np.arange(1, len(t10))
+t10.index = np.arange(1, len(t10)+1)
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
 st.markdown("### Основные метрики")
 total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
-average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique(), 0)
+average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique())
 
 col1, col2, col3 = st.columns(3)
 col1.metric("Общая реализация: тонн", total_sales,)
