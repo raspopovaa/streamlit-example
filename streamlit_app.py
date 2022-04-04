@@ -100,8 +100,7 @@ d = alt.Chart(t13).mark_trail().encode(
         scale=alt.Scale(type="log")  # Here the scale is applied
     ),
    color="Наименование_клиента",
-   size = "Тонны"
-)
+   )
 
 st.altair_chart(d, use_container_width=True)
 
