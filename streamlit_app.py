@@ -15,7 +15,7 @@ import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
 
-st.set_page_config(page_title=" Панель текущих продаж менеджеров", page_icon=":bar_chart:", layout="wide")
+st.set_page_config(page_title=" Панель продаж в текущем месяце", page_icon=":bar_chart:", layout="wide")
 
 # ---- READ EXCEL ----
 @st.cache(allow_output_mutation=True)
@@ -39,13 +39,13 @@ otdel = st.sidebar.multiselect(
     default=df['Отделение'].unique()
 )
 
-df_selection1 = df.query(
+df_selection_otdel = df.query(
     'Отделение in @otdel'
 )
 manager = st.sidebar.multiselect(
     "Выбери менеджера:",
-    options=df_selection1['Менеджер'].unique(),
-    default=df_selection1['Менеджер'].unique()
+    options=df_selection_otdel['Менеджер'].unique(),
+    default=df_selection_otdel['Менеджер'].unique()
 )
 month = st.sidebar.multiselect(
     "Выбери месяц:",
@@ -67,11 +67,10 @@ df_selection = df.query(
 )
 
 t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False).head(11)
-t11 = t10.rename(columns = {'Наименование_клиента':'Контрагент','Тонны':'Потребление:Тонны'}
+top_10 = t10.rename(columns = {'Наименование_клиента':'Контрагент','Тонны':'Потребление:Тонны'}
 ).reset_index().drop('index',axis=1)
-t11.index = np.arange(1,len(t10)+1)
-t12 = df_selection.groupby(['Менеджер'],as_index=False)['Тонны'].sum().sort_values(by='Тонны', ascending=False)
-t12['Тонны'] = t12['Тонны'].astype('int')
+top_10.index = np.arange(1,len(top_10)+1)
+
 
 # ---- MAINPAGE ----
 st.title(":bar_chart: Показатели активности клиентов")
@@ -88,7 +87,7 @@ col3.metric("Количество активных клиентов: клиен�
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: ТОП-10 клиентов")
 
-st.table(t11.style.background_gradient(axis=0, gmap=t11['Потребление:Тонны'], cmap='Blues'))
+st.table(top_10.style.background_gradient(axis=0, gmap=top_10['Потребление:Тонны'], cmap='Blues'))
       
 st.markdown("""---""")
 
