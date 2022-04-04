@@ -32,10 +32,17 @@ df = get_data_from_excel()
 
 # ---- SIDEBAR ----
 st.sidebar.header("Тут може отфильтровать данные:")
+
+otdel = st.sidebar.multiselect(
+    "Выбери отделение:",
+    options=df['Отделение'].unique(),
+    default=df['Отделение'].unique()
+)
+
 manager = st.sidebar.multiselect(
     "Выбери менеджера:",
-    options=df['Менеджер'].unique(),
-    default=df['Менеджер'].unique()
+    options=df_selection['Менеджер'].unique(),
+    default=df_selection['Менеджер'].unique()
 )
 month = st.sidebar.multiselect(
     "Выбери месяц:",
