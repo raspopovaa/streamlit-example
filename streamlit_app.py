@@ -66,7 +66,7 @@ df_selection = df.query(
     'Менеджер in @manager & month in @month & Сегмент in @segment & НГ in @prod & Отделение in @otdel'
 )
 
-top_10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean'])
+top_10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean','count'])
 
 
 
