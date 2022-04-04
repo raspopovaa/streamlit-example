@@ -66,9 +66,8 @@ df_selection = df.query(
     'Менеджер in @manager & month in @month & Сегмент in @segment & НГ in @prod & Отделение in @otdel'
 )
 
-t10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean'].sort_values(by='Тонны', ascending=False).head(11)
-top_10 = t10.reset_index().drop('index',axis=1)
-top_10.index = np.arange(1,len(top_10)+1)
+top_10 = df_selection.groupby(['Наименование_клиента'],as_index=False)['Тонны'].agg(['sum', 'mean'].sort_values(by='Тонны', ascending=False).head(11)
+
 
 
 # ---- MAINPAGE ----
@@ -86,7 +85,7 @@ col3.metric("Количество активных клиентов: клиен�
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: ТОП-10 клиентов")
 
-st.table(top_10.style.background_gradient(axis=0, gmap=top_10['Потребление:Тонны'], cmap='Blues'))
+st.table(top_10)
       
 st.markdown("""---""")
 
