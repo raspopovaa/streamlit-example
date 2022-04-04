@@ -38,7 +38,7 @@ otdel = st.sidebar.multiselect(
     options=df['Отделение'].unique(),
     default=df['Отделение'].unique()
 )
-)
+
 manager = st.sidebar.multiselect(
     "Выбери менеджера:",
     options=df['Менеджер'].unique(),
