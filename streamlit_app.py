@@ -107,14 +107,12 @@ def null(str):
   else:
     return str
 
-st.table(tt.columns)
-
 tt['4'] = tt['4'].apply(null)
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: Отток клиентов")
 
-st.table(tt.query('4 == 0'))
+st.table(tt[tt[(tt.columns[-1])] == 0])
       
 st.markdown("""---""")
 d = alt.Chart(t13).mark_trail().encode(
