@@ -14,7 +14,7 @@ import altair as alt
 import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
-import pyecharts
+
 
 
 
@@ -99,6 +99,21 @@ t01 = df_selection.groupby(['Наименование_клиента'],as_index=
 t02 = t01['Наименование_клиента']
 t13 = df_selection.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента',],as_index=False)['Тонны'].sum()
 
+tt = df_selection.pivot_table(index='Наименование_клиента', columns='month', values='Тонны', aggfunc='sum').reset_index()
+#
+def null(str):
+  if  0.02 < str < 15:
+    return 0
+  else:
+    return str
+tt[4] = tt[4].apply(null)
+
+st.markdown("""---""")
+st.markdown("### :articulated_lorry: Отток клиентов")
+
+st.table(tt.query('4 == 0'))
+      
+st.markdown("""---""")
 d = alt.Chart(t13).mark_trail().encode(
    x="month",
    y=alt.Y(
@@ -110,21 +125,6 @@ d = alt.Chart(t13).mark_trail().encode(
 
 st.altair_chart(d, use_container_width=True)
 
-b = (
-    Bar()
-    .add_xaxis(["Microsoft", "Amazon", "IBM", "Oracle", "Google", "Alibaba"])
-    .add_yaxis("2017-2018 Revenue in (billion $)", random.sample(range(100), 10))
-    .set_global_opts(
-        title_opts=opts.TitleOpts(
-            title="Top cloud providers 2018", subtitle="2017-2018 Revenue"
-        ),
-        toolbox_opts=opts.ToolboxOpts(),
-    )
-)
-st_pyecharts(
-    b, key="echarts"
-)  # Add key argument to not remount component at every Streamlit run
-st.button("Randomize data") 
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
