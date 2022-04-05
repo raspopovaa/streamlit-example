@@ -99,21 +99,7 @@ t01 = df_selection.groupby(['Наименование_клиента'],as_index=
 t02 = t01['Наименование_клиента']
 t13 = df_selection.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента',],as_index=False)['Тонны'].sum()
 
-tt = df_selection.pivot_table(index='Наименование_клиента', columns='month', values='Тонны', aggfunc='sum').reset_index()
-# функция для добавления нулей
-def null(str):
-  if  0.02 < str < 15:
-    return 0
-  else:
-    return str
-
-tt[(tt.columns[1])] = tt[(tt.columns[1])].apply(null)
-
-st.markdown("""---""")
-st.markdown("### :articulated_lorry: Отток клиентов")
-
-st.table(tt[tt[(tt.columns[1])] == 0])
-      
+  
 st.markdown("""---""")
 d = alt.Chart(t13).mark_trail().encode(
    x="month",
@@ -125,6 +111,22 @@ d = alt.Chart(t13).mark_trail().encode(
    )
 
 st.altair_chart(d, use_container_width=True)
+
+st.markdown("""---""")
+st.markdown("### :articulated_lorry: Отток клиентов")
+
+tt = df_selection.pivot_table(index='Наименование_клиента', columns='month', values='Тонны', aggfunc='sum').reset_index()
+
+# функция для добавления нулей
+def null(str):
+  if  0.02 < str < 15:
+    return 0
+  else:
+    return str
+
+tt[(tt.columns[1])] = tt[(tt.columns[1])].apply(null)
+
+st.table(tt[tt[(tt.columns[1])] == 0])
 
 
 # ---- HIDE STREAMLIT STYLE ----
