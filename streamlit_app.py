@@ -100,23 +100,12 @@ t13 = df_selection.query('Наименование_клиента in @t02').grou
 
   
 st.markdown("""---""")
-d = alt.Chart(t13).mark_trail().encode(
-   x="month",
-   y=alt.Y(
-        'Тонны',
-        scale=alt.Scale(type="log")  # Here the scale is applied
-    ),
-   color="Наименование_клиента",
-   )
-
-st.altair_chart(d, use_container_width=True)
-st.markdown("""---""")
 
 df1 = df_selection.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='month', ascending=False)
 df1['Тонны'] = round(df1['Тонны'])
 
 fig = px.line(df1, x="month", y="Тонны", color='Наименование_клиента', symbol="Наименование_клиента",hover_name="Наименование_клиента")
-
+st.header('Динамика ТОП клиентов')
 st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("""---""")
