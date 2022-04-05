@@ -14,6 +14,10 @@ import altair as alt
 import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
+import pyecharts.options as opts
+from pyecharts.charts import Line
+from pyecharts.faker import Faker
+
 
 st.set_page_config(page_title=" Панель продаж в текущем месяце", page_icon=":bar_chart:", layout="wide")
 
@@ -106,6 +110,22 @@ d = alt.Chart(t13).mark_trail().encode(
    )
 
 st.altair_chart(d, use_container_width=True)
+
+b = (
+    Bar()
+    .add_xaxis(["Microsoft", "Amazon", "IBM", "Oracle", "Google", "Alibaba"])
+    .add_yaxis("2017-2018 Revenue in (billion $)", random.sample(range(100), 10))
+    .set_global_opts(
+        title_opts=opts.TitleOpts(
+            title="Top cloud providers 2018", subtitle="2017-2018 Revenue"
+        ),
+        toolbox_opts=opts.ToolboxOpts(),
+    )
+)
+st_pyecharts(
+    b, key="echarts"
+)  # Add key argument to not remount component at every Streamlit run
+st.button("Randomize data") 
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
