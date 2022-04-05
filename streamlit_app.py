@@ -14,8 +14,7 @@ import altair as alt
 import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
-
-
+import plotly.figure_factory as ff
 
 
 st.set_page_config(page_title=" Панель продаж в текущем месяце", page_icon=":bar_chart:", layout="wide")
@@ -111,6 +110,14 @@ d = alt.Chart(t13).mark_trail().encode(
    )
 
 st.altair_chart(d, use_container_width=True)
+st.markdown("""---""")
+
+df1 = df_selection.query('Наименование_клиента in @t02').groupby(['month','Наименование_клиента'],as_index=False)['Тонны'].sum().sort_values(by='month', ascending=False)
+df1['Тонны'] = round(df1['Тонны'])
+
+fig = px.line(df1, x="month", y="Тонны", color='Наименование_клиента', symbol="Наименование_клиента",hover_name="Наименование_клиента", text='Тонны')
+
+st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: Отток клиентов")
