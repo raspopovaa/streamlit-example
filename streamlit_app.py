@@ -107,7 +107,7 @@ def null(str):
   else:
     return str
 
-tt['4'] = tt['4'].apply(null)
+tt[(tt.columns[-1])] = tt[(tt.columns[-1])].apply(null)
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: Отток клиентов")
