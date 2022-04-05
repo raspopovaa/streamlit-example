@@ -14,6 +14,7 @@ import altair as alt
 import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
+import pyecharts
 import pyecharts.options as opts
 from pyecharts import Bar
 from pyecharts import options as opts
