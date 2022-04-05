@@ -105,7 +105,7 @@ df1 = df_selection.query('Наименование_клиента in @t02').grou
 df1['Тонны'] = round(df1['Тонны'])
 
 fig = px.line(df1, x="month", y="Тонны", color='Наименование_клиента', symbol="Наименование_клиента",hover_name="Наименование_клиента")
-st.header('Динамика ТОП клиентов')
+st.markdown('### Динамика ТОП клиентов')
 st.plotly_chart(fig, use_container_width=True)
 
 st.markdown("""---""")
