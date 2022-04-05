@@ -107,6 +107,8 @@ def null(str):
   else:
     return str
 
+st.table(tt.columns)
+
 tt['4'] = tt['4'].apply(null)
 
 st.markdown("""---""")
