@@ -15,6 +15,7 @@ import openpyxl
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
+import pydeck as pdk
 
 
 st.set_page_config(page_title=" Панель продаж в текущем месяце", page_icon=":bar_chart:", layout="wide")
