@@ -127,6 +127,19 @@ st.table(tt[tt[(tt.columns[1])] == 0])
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry:   Карта распределения заправок")
+# ---- READ EXCEL ----
+@st.cache()
+def get_data_from_par():
+    sd = pd.read_parquet(
+        'data_tranzak.parquet',
+        )
+   
+    return sd   
+    
+
+geo = get_data_from_excel()
+
+st.map(geo)
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
