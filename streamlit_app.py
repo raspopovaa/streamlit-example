@@ -137,7 +137,7 @@ def get_data_from_par():
     return sd   
     
 
-geo = get_data_from_excel()
+geo = get_data_from_par()
 geo = geo.rename(columns = {'lot':'lon'})
 st.table(geo.head(3))
 st.map(geo)
