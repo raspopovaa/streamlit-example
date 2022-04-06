@@ -138,7 +138,7 @@ def get_data_from_par():
     
 
 df2 = get_data_from_par()
-st.table(df2.head(5))
+st.table(df.head(5))
 
 st.pydeck_chart(pdk.Deck(
      map_style='mapbox://styles/mapbox/light-v9',
