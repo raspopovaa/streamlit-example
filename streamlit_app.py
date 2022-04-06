@@ -115,7 +115,7 @@ tt = df_selection.pivot_table(index='Наименование_клиента', c
 
 # функция для добавления нулей
 def null(str):
-  if  0.02 < str < average_rating*0,2:
+  if  str < (average_rating \ 2):
     return 0
   else:
     return str
