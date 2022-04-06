@@ -139,6 +139,7 @@ def get_data_from_par():
 
 geo = get_data_from_par()
 geo = geo.rename(columns = {'lot':'lon'})
+geo[['lat','lon']] = float(geo[['lat','lon']])
 st.table(geo.head(3))
 st.map(geo)
 
