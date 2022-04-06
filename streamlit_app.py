@@ -139,6 +139,7 @@ def get_data_from_par():
 
 geo = get_data_from_excel()
 geo = geo.rename(columns = {'lot':'lon'})
+st.table(geo.head(3))
 st.map(geo)
 
 # ---- HIDE STREAMLIT STYLE ----
