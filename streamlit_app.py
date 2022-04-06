@@ -127,9 +127,18 @@ st.table(tt[tt[(tt.columns[1])] == 0])
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry:   Карта распределения заправок")
-df = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon'])
+
+@st.cache(allow_output_mutation=True)
+def get_data_from_par():
+    df = pd.read_parquet(
+        'data_tranz.parquet',
+        )
+   
+    return df    
+    
+
+df2 = get_data_from_par()
+st.table(df2.head(5))
 
 st.pydeck_chart(pdk.Deck(
      map_style='mapbox://styles/mapbox/light-v9',
@@ -142,7 +151,7 @@ st.pydeck_chart(pdk.Deck(
      layers=[
          pdk.Layer(
             'HexagonLayer',
-            data=df,
+            data=df2,
             get_position='[lon, lat]',
             radius=200,
             elevation_scale=4,
@@ -152,7 +161,7 @@ st.pydeck_chart(pdk.Deck(
          ),
          pdk.Layer(
              'ScatterplotLayer',
-             data=df,
+             data=df2,
              get_position='[lon, lat]',
              get_color='[200, 30, 0, 160]',
              get_radius=200,
