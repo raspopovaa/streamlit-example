@@ -141,9 +141,7 @@ geo = get_data_from_par()
 geo = geo.rename(columns = {'lot':'lon'})
 geo[['lat','lon']] = (geo[['lat','lon']]).astype('float')
 st.table(geo.head(3))
-st.map(geo, latitude=54.978516,
-         longitude=83.014968,
-         zoom=11,)
+st.map(geo)
 
 
 # ---- HIDE STREAMLIT STYLE ----
