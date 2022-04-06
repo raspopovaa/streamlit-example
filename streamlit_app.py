@@ -128,19 +128,6 @@ st.table(tt[tt[(tt.columns[1])] == 0])
 st.markdown("""---""")
 st.markdown("### :articulated_lorry:   Карта распределения заправок")
 
-@st.cache(allow_output_mutation=True)
-def get_data_from_par():
-    df = pd.read_parquet(
-        'data_tranz.parquet',
-        )
-   
-    return df    
-    
-
-df2 = get_data_from_par()
-st.table(df2.head(5))
-
-
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
             <style>
