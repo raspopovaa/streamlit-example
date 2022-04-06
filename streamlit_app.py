@@ -138,7 +138,7 @@ def get_data_from_par():
     
 
 df2 = get_data_from_par()
-st.table(df.head(5))
+st.table(df2.head(5))
 
 st.pydeck_chart(pdk.Deck(
      map_style='mapbox://styles/mapbox/light-v9',
@@ -151,7 +151,7 @@ st.pydeck_chart(pdk.Deck(
      layers=[
          pdk.Layer(
             'HexagonLayer',
-            data=df2,
+            data=df,
             get_position='[lon, lat]',
             radius=200,
             elevation_scale=4,
