@@ -126,7 +126,7 @@ tt[(tt.columns[1])] = tt[(tt.columns[1])].apply(null)
 st.table(tt[tt[(tt.columns[1])] == 0])
 
 st.markdown("""---""")
-st.markdown("### :articulated_lorry:   Карта распределения заправок")
+st.markdown("### :articulated_lorry:   Карта распределения транзакций клиентов")
 # ---- READ EXCEL ----
 @st.cache()
 def get_data_from_par():
@@ -140,7 +140,6 @@ def get_data_from_par():
 geo = get_data_from_par()
 geo = geo.rename(columns = {'lot':'lon'})
 geo[['lat','lon']] = (geo[['lat','lon']]).astype('float')
-st.table(geo.head(3))
 st.map(geo)
 
 
