@@ -159,7 +159,7 @@ st.pydeck_chart(pdk.Deck(
          ),
      ],
  ))
-Copy
+
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
