@@ -20,6 +20,9 @@ import pydeck as pdk
 
 st.set_page_config(page_title=" Панель продаж в текущем месяце", page_icon=":bar_chart:", layout="wide")
 
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 # ---- READ EXCEL ----
 @st.cache(allow_output_mutation=True)
 def get_data_from_excel():
