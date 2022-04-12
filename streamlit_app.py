@@ -16,7 +16,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import plotly.figure_factory as ff
 import pydeck as pdk
-
+from PIL import Image
 
 st.set_page_config(page_title=" Панель продаж в текущем месяце", page_icon=":bar_chart:", layout="wide")
 
@@ -85,10 +85,11 @@ total_sales = int(df_selection['Тонны'].sum())
 average_rating = round(df_selection.groupby('Наименование_клиента')['Тонны'].mean().mean(), 1)
 average_sale_by_transaction = round(df_selection['Наименование_клиента'].nunique())
 
-col1, col2, col3 = st.columns(3)
-col1.metric("Общая реализация: тонн", total_sales,)
-col2.metric("Среднее потребление клиента: тонн", average_rating, )
-col3.metric("Количество активных клиентов: клиентов", average_sale_by_transaction,)
+col1, col2, col3, col4 = st.columns(4)
+col1.image(Image.open('logo.png'))
+col2.metric("Общая реализация: тонн", total_sales,)
+col3.metric("Среднее потребление клиента: тонн", average_rating, )
+col4.metric("Количество активных клиентов: клиентов", average_sale_by_transaction,)
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: ТОП-10 клиентов")
