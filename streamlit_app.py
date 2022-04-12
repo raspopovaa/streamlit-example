@@ -37,7 +37,10 @@ df = get_data_from_excel()
 
 
 # ---- SIDEBAR ----
+st.sidebar.image(Image.open('logo.png'))
 st.sidebar.header("Тут може отфильтровать данные:")
+
+
 
 otdel = st.sidebar.multiselect(
     "Выбери отделение:",
