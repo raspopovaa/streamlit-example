@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 import time
 import openpyxl
-
+import xlrd
 
 
 uploaded_file = st.file_uploader(
