@@ -114,7 +114,7 @@ if st.button('   Выгрузить данные клиента.  '):
     with st.spinner('Идет загрузка данных ...'):
         df_b['ОГРН'] = df_b['ИНН'].apply(find_ogrn)
         df_b['Наименование'] = df_b['ИНН'].apply(find_name)
-        df_b['ФИО'] = df_b['ИНН'].apply(find_dir)
+        df_b['ФИО директора'] = df_b['ИНН'].apply(find_dir)
         df_b['адрес'] = df_b['ИНН'].apply(find_adress)
     st.dataframe(df_b)
     st.balloons()
