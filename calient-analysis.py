@@ -100,7 +100,7 @@ t13 = df_selection.query('Номер_карты in @t02').groupby(['month','Но
   
 st.markdown("""---""")
 
-df1 = df_selection.query('Наименование_клиента in @t02').groupby(['month','Номер_карты'],as_index=False)['Количество'].sum().sort_values(by='month', ascending=False)
+df1 = df_selection.query('Номер_карты in @t02').groupby(['month','Номер_карты'],as_index=False)['Количество'].sum().sort_values(by='month', ascending=False)
 df1['Количество'] = round(df1['Количество'])
 
 fig = px.line(df1, x="month", y="Количество", color='Номер_карты', symbol="Номер_карты",hover_name="Номер_карты")
