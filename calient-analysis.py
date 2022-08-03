@@ -21,7 +21,7 @@ with open('style.css') as f:
 @st.cache(allow_output_mutation=True)
 def get_data_from_parquet():
     df = pd.read_parquet(
-        'one_client_tranz',
+        'one_client_tranz.parquet',
         )
    
     return df    
