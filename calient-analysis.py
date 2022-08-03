@@ -116,11 +116,13 @@ tt = df_selection.pivot_table(index='Номер_карты', columns='month', va
 st.markdown("""---""")
 st.markdown("### :articulated_lorry:   Карта распределения транзакций клиентов")
 
-df['lot'] = df['Координаты'].apply(lambda x: x.split(',')[0])
+
+
+df['lat'] = df['Координаты'].apply(lambda x: x.split(',')[0])
 df['lon'] = df['Координаты'].apply(lambda x: x.split(',')[1])
 
-df[['lot','lon']] = (df[['lot','lon']]).astype('float')
-st.map(df[['lot','lon']])
+df[['lat','lon']] = (df[['lat','lon']]).astype('float')
+st.map(df)
 
 
 # ---- HIDE STREAMLIT STYLE ----
