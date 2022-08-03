@@ -46,6 +46,11 @@ card = st.sidebar.multiselect(
 df_selection_otdel = df.query(
     'Номер_карты in @card'
 )
+month = st.sidebar.multiselect(
+    "Выбери месяц:",
+    options=df['month'].unique(),
+    default=df['month'].unique()
+)   
 tovar = st.sidebar.multiselect(
     "Выбери вид топлива:",
     options=df_selection_otdel['Товар'].unique(),
@@ -55,11 +60,6 @@ azs = st.sidebar.multiselect(
     "Выбери АЗС:",
     options=df['АЗС'].unique(),
     default=df['АЗС'].unique()
-)
-month = st.sidebar.multiselect(
-    "Выбери месяц:",
-    options=df['month'].unique(),
-    default=df['month'].unique()
 )
 
 df_selection = df.query(
@@ -86,7 +86,7 @@ col2.metric("Среднее потребление клиента: тонн", av
 col3.metric("Количество активных клиентов: клиентов", average_sale_by_transaction,)
 
 st.markdown("""---""")
-st.markdown("### :articulated_lorry: ТОП-10 клиентов")
+st.markdown("### :articulated_lorry: ТОП-10 карт")
 
 st.table(top_10)
       
