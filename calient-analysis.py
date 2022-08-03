@@ -84,8 +84,8 @@ col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("Общая реализация: тонн", total_sales,)
 col2.metric("Среднее потребление клиента: тонн", average_rating, )
-col4.metric("Сумма сервисного сбора: рублей", ss,)
 col3.metric("Сумма скидки: рублей", sale,)
+col4.metric("Сумма сервисного сбора: рублей", ss,)
 
 st.markdown("""---""")
 st.markdown("### :articulated_lorry: ТОП-5 карт")
